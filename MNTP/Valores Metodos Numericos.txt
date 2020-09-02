@@ -1,0 +1,40 @@
+FUNCION: (1 + sin(x*(diff(y)))^2)/(1+(diff(y))^2)
+X_inicio: 0
+X_fin: 2
+h: 0.25
+orden: 2
+y(0): 1
+y'(0): 1
+
+
+
+ver introducir familia de curvas
+apellidos 
+despejada la derivda del orden en donde 
+
+
+syms y(x)
+handles.valor_orden = set(hObject,'String');
+f = eval(strcat('diff(y,', handles.valor_orden,')==',set(hObject,'String')));
+handles.funcion = f;
+handles.valor_cond1 = set(hObject,'String');
+handles.valor_cond2 = set(hObject,'String');
+handles.valor_iteracion = set(hObject,'String');
+
+
+
+
+
+
+
+
+
+
+
+function respuesta = Aproximacion_Discreta(f, xs, y)
+syms x;
+A = subs(f,transpose(xs))
+AtA = transpose(A)*A;
+aux=((inv(AtA))*(transpose(A)*transpose(y)));
+f = aux(1) + aux(2)*x + aux(3)*x^2;
+respuesta = f;
